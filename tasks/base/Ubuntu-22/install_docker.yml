@@ -9,10 +9,13 @@
     repo: "{{ docker_version_map[docker_version]['repo'] }}"
     state: present
 
+- name: Update APT package index
+  apt:
+    update_cache: yes
+
 - name: Install docker
   apt:
     name: "{{ docker_version_map[docker_version]['package'] }}"
-    update_cache: yes
     state: present
 
 - name: Pin docker-engine packet
