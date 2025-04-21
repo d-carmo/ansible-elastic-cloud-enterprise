@@ -30,8 +30,6 @@
   when: ansible_lvm['vgs']['lxc'] is not defined or force_xfc == true
 - include_tasks: general/update_grub_docker.yml
   tags: [setup_filesystem, destructive]
-- include_tasks: general/configure_docker.yml
-  tags: [install_docker, destructive]
 - include_tasks: general/sysctl_scripts.yml
 - include_tasks: general/kernel_modules.yml
 
